@@ -6,7 +6,10 @@
 <body>
 
 	<div id="app">
-		<img v-bind="item" v-bind:id="'thumb-' + item.id">
+		<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+			<circle cx="100" cy="75" v-bind:r="radius" fill="lightpink" />
+		</svg>
+		<input type="range" min="0" max="100" v-model="radius">
 	</div>
 	<!-- script!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -15,13 +18,7 @@
 		new Vue({
 			el: '#app',
 			data: {
-				item: {
-					id: 1,
-					src: 'https://tistory2.daumcdn.net/tistory/1452111/skin/images/heartIcon.jpg',
-					alt: '하트',
-					width: 200,
-					height: 200
-				}
+				radius: 50
 			}
 		});
 	</script>
