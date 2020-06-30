@@ -1,18 +1,8 @@
-<style>
-  .v-enter-active, .v-leave-active {
-    transition: opactity 1s;
-  }
-
-  /* opacity:0에서 1까지 페이드인&페이드아웃하기 */
-  .v-enter, .v-leave-to {
-    opacity: 0;
-  }
-</style>
 <div id="app">
-  <button v-on:click="show=!show">변경하기</button>
-  <transition>
-    <p v-if="show">Hello Vue.js!</p>
-  </transition>
+	<p>{{ message.value }}</p>
+	<p>{{ message.value.length }}</p>
+	<p>{{ list[2] }}</p>
+	<p>{{ list[num] }}</p>
 </div>
 
 
@@ -20,10 +10,17 @@
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
 <script type="text/javascript">
-  var app = new Vue({
-    el: '#app',
-    data: {
-      show: true
-    }
-  });
+	var app = new Vue({
+		el: '#app',
+		data: {
+			// 객체 데이터
+			message: {
+				value: 'Hello Vue.js!'
+			},
+			// 배열 데이터
+			list: ['사과', '바나나', '딸기'],
+			// 다른 데이터를 사용해서 list에서 값을 추출하기 위한 요소
+			num: 1
+		}
+	});
 </script>
