@@ -6,8 +6,8 @@
 <body>
 
 	<div id="app">
-		<p v-bind:class="{ child:isChild, 'is-active':isActive }">Text</p>
-		<p v-bind:style="{ color:textColor, backgroundColor:bgColor }">Text</p>
+		<p v-bind:class="classObject">Text</p>
+		<p v-bind:style="styleObject">Text</p>
 	</div>
 	<!-- script!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -16,10 +16,14 @@
 		new Vue({
 			el: '#app',
 			data: {
-				isChild: true,
-				isActive: true,
-				textColor: 'red',
-				bgColor: 'lightgray'
+				classObject: {
+					child: true,
+					'is-active': false
+				},
+				styleObject: {
+					color: 'red',
+					backgroundColor: 'lightgray'
+				}
 			}
 		});
 	</script>
