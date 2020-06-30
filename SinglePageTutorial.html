@@ -6,40 +6,20 @@
 <body>
 
 	<div id="app">
-		<!-- count 속성 출력하기 -->
-		<p>{{ count }}번 클릭했습니다.</p>
-		<!-- 이 버튼을 클릭하면 increment 메서드가 호출됩니다. -->
-		<button v-on:click="increment">카운트 하기</button>
+		<p v-bind:class="{ child:isChild, 'is-active':isActive }">Text</p>
+		<p v-bind:style="{ color:textColor, backgroundColor:bgColor }">Text</p>
 	</div>
-	
-	
-	
+	<!-- script!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
 	<script type="text/javascript">
 		new Vue({
 			el: '#app',
 			data: {
-				count: 0
-			},
-			methods: {
-				increment: function() {
-					// 미리 다른 변수에 대입하면 setTimeout 내부에서 사용할 수 있음
-					var vm = this;
-					setTimeout(function() {
-						vm.count++;
-					}, 100);
-
-					// bind로 this를 변경하는 방법
-					setTimeout(function() {
-						this.count++;
-					}.bind(this), 100);
-
-					// 화살표 함수를 사용하면 setTimeout이 호출하는 increment 메서드의 this가 되므로 Vue 인스턴스에 접근할 수 있음
-					setTimeout(() => {this.count++;}, 100);
-					// 익명 함수가 아니라 메서드를 지정하는 방법
-					setTimeout(this.callback, 100);
-				}
+				isChild: true,
+				isActive: true,
+				textColor: 'red',
+				bgColor: 'lightgray'
 			}
 		});
 	</script>
