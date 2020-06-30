@@ -1,23 +1,36 @@
-<div id="app">
-	<input type="text" :value="message.value">
-</div>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
 
-
-
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
-<script type="text/javascript">
-	var app = new Vue({
-		el: '#app',
-		data: {
-			// 객체 데이터
-			message: {
-				value: 'Hello Vue.js!'
+	<div id="app">
+		<!-- count 속성 출력하기 -->
+		<p>{{ count }}번 클릭했습니다.</p>
+		<!-- 이 버튼을 클릭하면 increment 메서드가 호출됩니다. -->
+		<button v-on:click="increment">카운트 하기</button>
+	</div>
+	
+	
+	
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+	<script type="text/javascript">
+		new Vue({
+			el: '#app',
+			data: {
+				count: 0
 			},
-			// 배열 데이터
-			list: ['사과', '바나나', '딸기'],
-			// 다른 데이터를 사용해서 list에서 값을 추출하기 위한 요소
-			num: 1
-		}
-	});
-</script>
+			methods: {
+				// 버튼을 클릭할 때의 핸들러
+				increment: function() {
+					this.count += 1;
+				}
+			}
+		});
+	</script>
+
+</body>
+</html>
+
