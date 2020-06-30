@@ -6,8 +6,7 @@
 <body>
 
 	<div id="app">
-		<p v-bind:class="classObject">Text</p>
-		<p v-bind:style="styleObject">Text</p>
+		<img v-bind="item" v-bind:id="'thumb-' + item.id">
 	</div>
 	<!-- script!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -16,13 +15,12 @@
 		new Vue({
 			el: '#app',
 			data: {
-				classObject: {
-					child: true,
-					'is-active': false
-				},
-				styleObject: {
-					color: 'red',
-					backgroundColor: 'lightgray'
+				item: {
+					id: 1,
+					src: 'https://tistory2.daumcdn.net/tistory/1452111/skin/images/heartIcon.jpg',
+					alt: '하트',
+					width: 200,
+					height: 200
 				}
 			}
 		});
