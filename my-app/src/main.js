@@ -8,6 +8,5 @@ Vue.config.productionTip = false
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  components: { App },
-  template: '<App/>'
+  render: h => h(App) // 런타임 한정으로 변경
 })
