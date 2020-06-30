@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+
+	<div id="app">
+        <my-component></my-component>
+        <my-component></my-component>
+	</div>
+	<!-- script!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuex/dist/vuex.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-router/dist/vue-router.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash/lodash.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="text/javascript">
+    
+        // 컴포넌트 정의
+		Vue.component('my-component', {
+            // 템플릿 루트 요소는 하나여야함
+            template : '<div><p>{{ message }}</p><p>{{ message }}</p></div>',
+            // 데이터는 객체를 리턴하는 함수로 지정하기
+            data: function() {
+                return {
+                    message: 'Hello Vue.js'
+                }
+            },
+            methods: {
+                // 매서드, 산출 속성, 워처의 정의 방법은 루트 생성자 객체와 같음
+            }
+        });
+
+        new Vue({
+            el: '#app'
+        });
+	</script>
+</body>
+</html>

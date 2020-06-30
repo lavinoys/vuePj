@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+
+	<div id="app">
+		<ul>
+            <com-chlid v-for="item in list"
+            v-bind:key="item.id"
+            v-bind:name="item.name"
+            v-bind:hp="item.hp">
+            </com-chlid>
+        </ul>
+	</div>
+	<!-- script!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuex/dist/vuex.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-router/dist/vue-router.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash/lodash.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="text/javascript">
+    
+        Vue.component('com-chlid', {
+            template : '<li>{{ name }} / HP : {{ hp }}</li>',
+            props:['name', 'hp']
+        });
+
+        new Vue({
+            el: '#app',
+			data: {
+				list: [
+                    { id: 1, name: '슬라임', hp: 100 },
+                    { id: 2, name: '고블린', hp: 200 },
+                    { id: 3, name: '드래곤', hp: 500 }
+                ]
+			}
+        });
+	</script>
+</body>
+</html>

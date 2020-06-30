@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+
+    <style>
+        /* 1초 동안 요소를 움직이기 */
+        .v-move {
+            transition: transform 1s;
+        }
+    </style>
+	<div id="app">
+        <button v-on:click="order=!order">변경하기</button>
+        <!-- transition-group 태그로 지정한 속성은 랩 요소에 추가하기 -->
+        <transition-group tag="ul" class="list">
+            <li v-for="item in sortedList" v-bind:key="item.id">
+                {{ item.name }} {{ item.price }}원
+            </li>
+        </transition-group>
+	</div>
+	<!-- script!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuex/dist/vuex.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-router/dist/vue-router.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash/lodash.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script type="text/javascript">
+		new Vue({
+			el: '#app',
+			data: {
+                order: false,
+				list: [
+                    { id: 1, name: '사과', price: 100 },
+                    { id: 2, name: '바나나', price: 200 },
+                    { id: 3, name: '딸기', price: 300 }
+                ]
+			},
+            computed: {
+                sortedList: function() {
+                    return _.orderBy(this.list, 'price', this.order ? 'desc' : 'asc');
+                }
+            }
+		});
+	</script>
+
+</body>
+</html>

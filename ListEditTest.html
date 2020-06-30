@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+
+	<div id="app">
+        <ul>
+            <li v-for="(item, index) in list" v-bind:key="item.id" v-if="item.hp">
+                ID.{{ item.id }} {{ item.name }} HP.{{ item.hp }}
+                <span v-if="item.hp < 50">큰 피해...!</span>
+                <!-- 수정 버튼을 v-for 내부에 만들기 -->
+                <button v-on:click="doAttack(index)">공격하기</button>
+            </li>
+        </ul>
+        
+	</div>
+	<!-- script!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+	<script type="text/javascript">
+		new Vue({
+			el: '#app',
+			data: {
+                name: '키메라',
+				list: [
+                    { id: 1, name: '슬라임', hp: 100 },
+                    { id: 2, name: '고블린', hp: 200 },
+                    { id: 3, name: '드래곤', hp: 500 }
+                ]
+			},
+            methods: {
+                // 버튼을 클릭했을 때의 핸들러
+                doAttack: function(index) {
+                    this.list[index].hp -= 10; // HP 감소시키기
+                }
+            }
+		});
+	</script>
+
+</body>
+</html>
