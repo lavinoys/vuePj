@@ -1,21 +1,19 @@
-<div id="app">{{ message }}</div>
-<div id="chapter2">
-    <ol>
-        <li v-for="item in list">{{ list }}</li>
-    </ol>
-</div>
-<div id="chapter3">
-    <button v-on:click="handleClick">click</button>
-</div>
-<div id="chapter4">
-    <p>{{ message }}</p>
-    <input v-model="message">
-    <input v-model.number="count">
-</div>
-<div id="chapter5">
-  <p v-if="show">Hello Vue.js!</p>
-</div>
+<style>
+  .v-enter-active, .v-leave-active {
+    transition: opactity 1s;
+  }
 
+  /* opacity:0에서 1까지 페이드인&페이드아웃하기 */
+  .v-enter, .v-leave-to {
+    opacity: 0;
+  }
+</style>
+<div id="app">
+  <button v-on:click="show=!show">변경하기</button>
+  <transition>
+    <p v-if="show">Hello Vue.js!</p>
+  </transition>
+</div>
 
 
 
@@ -25,40 +23,7 @@
   var app = new Vue({
     el: '#app',
     data: {
-      message: '안녕하세요 Vue!'
-    }
-  });
-  console.log(app.message);
-
-  var chapter2 = new Vue({
-    el: '#chapter2',
-    data: {
-      list: ['사과', '바나나', '딸기']
-    }
-  });
-  chapter2.list.push('오렌지');
-
-  var chapter3 = new Vue({
-    el: '#chapter3',
-    methods: {
-      handleClick:function(event) {
-        alert(event.target);
-      }
-    }
-  });
-
-  var chapter4 = new Vue({
-    el: '#chapter4',
-    data: {
-      message: '초기 메시지',
-      count: 104
-    }
-  });
-
-  var chapter5 = new Vue({
-    el: "#chapter5",
-    data: {
-      show: false
+      show: true
     }
   });
 </script>
