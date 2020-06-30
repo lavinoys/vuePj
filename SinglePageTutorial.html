@@ -1,0 +1,64 @@
+<div id="app">{{ message }}</div>
+<div id="chapter2">
+    <ol>
+        <li v-for="item in list">{{ list }}</li>
+    </ol>
+</div>
+<div id="chapter3">
+    <button v-on:click="handleClick">click</button>
+</div>
+<div id="chapter4">
+    <p>{{ message }}</p>
+    <input v-model="message">
+    <input v-model.number="count">
+</div>
+<div id="chapter5">
+  <p v-if="show">Hello Vue.js!</p>
+</div>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+<script type="text/javascript">
+  var app = new Vue({
+    el: '#app',
+    data: {
+      message: '안녕하세요 Vue!'
+    }
+  });
+  console.log(app.message);
+
+  var chapter2 = new Vue({
+    el: '#chapter2',
+    data: {
+      list: ['사과', '바나나', '딸기']
+    }
+  });
+  chapter2.list.push('오렌지');
+
+  var chapter3 = new Vue({
+    el: '#chapter3',
+    methods: {
+      handleClick:function(event) {
+        alert(event.target);
+      }
+    }
+  });
+
+  var chapter4 = new Vue({
+    el: '#chapter4',
+    data: {
+      message: '초기 메시지',
+      count: 104
+    }
+  });
+
+  var chapter5 = new Vue({
+    el: "#chapter5",
+    data: {
+      show: false
+    }
+  });
+</script>
